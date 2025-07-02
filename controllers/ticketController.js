@@ -135,7 +135,9 @@ exports.uploadAttachment = async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ msg: 'No file uploaded' });
 
-    const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    // const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    const fileUrl = `https://alps-backend-twd9.onrender.com/uploads/${req.file.filename}`;
+
 
     const ticket = await Ticket.findById(req.params.id);
     if (!ticket) return res.status(404).json({ msg: 'Ticket not found' });
